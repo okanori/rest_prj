@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'rest_app',
     'rest_framework',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,13 +113,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
-STATIC_URL = '/static/'
-
-# STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
@@ -125,7 +120,14 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
-STATIC_ROOT = 'staticfiles'
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+STATIC_URL = '/static/'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
