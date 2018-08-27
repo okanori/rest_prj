@@ -5,3 +5,4 @@ dj-database-url
 uwsgi
 psycopg2
 whitenoise
+dj_static
