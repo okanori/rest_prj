@@ -7,4 +7,4 @@ class PositionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Position
-        fields = ('name', 'latitude', 'longitude', 'update')
+        fields = ('id', 'name', 'latitude', 'longitude', 'update')
