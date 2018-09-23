@@ -9,7 +9,4 @@ from .serializer import PositionSerializer
 class PositionViewSet(viewsets.ModelViewSet):
     queryset = Position.objects.all()
     serializer_class = PositionSerializer
-
-    class META:
-        lookup_field = 'uuid'
-
+    lookup_field = 'uuid'
