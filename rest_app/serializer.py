@@ -8,4 +8,5 @@ class PositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Position
         # fields = ('uuid', 'name', 'latitude', 'longitude', 'update')
-        exclude = ('',)
+        fields = '__all__'
+        # exclude = ('',)
